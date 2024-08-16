@@ -1,6 +1,8 @@
 import React, { useContext } from "react";
 import { Outlet } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
+import Footer from "../components/Footer";
+import Navbar from "../components/Navbar";
 
 const Main = () => {
   const { logOut } = useContext(AuthContext);
@@ -9,17 +11,10 @@ const Main = () => {
   };
   return (
     <div>
-      <div className="flex justify-between bg-red-300 px-4">
-        <p>navbar</p>
-        <button
-          onClick={handleLogOut}
-          className="px-2 bg-blue-400 rounded-lg text-white py-2"
-        >
-          Logout
-        </button>
-      </div>
+      <Navbar />
+
       <Outlet />
-      <p>footer</p>
+      <Footer />
     </div>
   );
 };
