@@ -1,5 +1,5 @@
 import React from "react";
-
+import image from "../assets/banner image.jpg";
 const Banner = () => {
   return (
     <section className="bg-gray-100 py-12 mb-6">
@@ -19,7 +19,7 @@ const Banner = () => {
         </div>
         <div className="lg:w-1/2 w-full p-6">
           <img
-            src="https://via.placeholder.com/600x400"
+            src={image}
             alt="Banner Image"
             className="rounded-lg shadow-lg"
           />
