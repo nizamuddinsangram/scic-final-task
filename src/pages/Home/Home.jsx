@@ -70,12 +70,117 @@ const Home = () => {
   };
 
   return (
+    // <>
+    //   <Banner />
+    //   <div className="mx-10">
+    //     {/*  */}
+    //     <div className="flex flex-col lg:flex-row gap-6 justify-between mb-10">
+    //       {/*  */}
+    //       <input
+    //         type="text"
+    //         placeholder="Search products by name..."
+    //         className="input input-bordered w-full lg:max-w-xs"
+    //         value={searchQuery}
+    //         onChange={(e) => setSearchQuery(e.target.value)}
+    //       />
+
+    //       {/*  */}
+    //       <select
+    //         className="select select-bordered w-full lg:max-w-xs"
+    //         value={selectedBrand}
+    //         onChange={(e) => setSelectedBrand(e.target.value)}
+    //       >
+    //         <option value="">All Brands</option>
+    //         <option value="Logitech">Logitech</option>
+    //         <option value="Apple">Apple</option>
+    //         <option value="Samsung">Samsung</option>
+    //         {/*  */}
+    //       </select>
+
+    //       {/* */}
+    //       <select
+    //         className="select select-bordered w-full lg:max-w-xs"
+    //         value={selectedCategory}
+    //         onChange={(e) => setSelectedCategory(e.target.value)}
+    //       >
+    //         <option value="">All Categories</option>
+    //         <option value="Electronics">Electronics</option>
+    //         <option value="Home Appliances">Home Appliances</option>
+    //         <option value="Cameras">Cameras</option>
+    //         {/* */}
+    //       </select>
+
+    //       {/*  */}
+    //       <div className="flex items-center w-full lg:max-w-xs">
+    //         <span className="mr-2">${priceRange[0]}</span>
+    //         <input
+    //           type="range"
+    //           min="0"
+    //           max="2000"
+    //           value={priceRange[1]}
+    //           className="range range-primary flex-grow"
+    //           onChange={(e) =>
+    //             setPriceRange([priceRange[0], parseInt(e.target.value)])
+    //           }
+    //         />
+    //         <span className="ml-2">${priceRange[1]}</span>
+    //       </div>
+
+    //       {/*  */}
+    //       <select
+    //         className="select select-bordered w-full lg:max-w-xs"
+    //         value={sortOption}
+    //         onChange={(e) => setSortOption(e.target.value)}
+    //       >
+    //         <option value="">Sort by</option>
+    //         <option value="price-low-high">Price: Low to High</option>
+    //         <option value="price-high-low">Price: High to Low</option>
+    //         <option value="date-newest">Date Added: Newest First</option>
+    //       </select>
+    //     </div>
+
+    //     {/*  */}
+    //     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mx-10">
+    //       {sortedProducts?.map((product) => (
+    //         <Products key={product._id} product={product} />
+    //       ))}
+    //     </div>
+
+    //     {/*  */}
+    //     <div className="flex justify-center mt-8">
+    //       <button
+    //         className="btn"
+    //         onClick={handlePreviousPage}
+    //         disabled={currentPage === 1}
+    //       >
+    //         Previous
+    //       </button>
+    //       <span className="mx-4">
+    //         Page {currentPage} of {totalPages}
+    //       </span>
+    //       <button
+    //         className="btn"
+    //         onClick={handleNextPage}
+    //         disabled={currentPage === totalPages}
+    //       >
+    //         Next
+    //       </button>
+    //     </div>
+    //   </div>
+    // </>
     <>
       <Banner />
-      <div className="mx-10">
-        {/*  */}
+      <div className="container mx-auto px-4 py-8">
+        <div className="text-center mb-10">
+          <h1 className="text-3xl font-bold text-primary mb-2">Our Products</h1>
+          <p className="text-gray-600">
+            Browse through our wide selection of top-quality products.
+          </p>
+        </div>
+
+        {/* Search, Filter, and Sort Controls */}
         <div className="flex flex-col lg:flex-row gap-6 justify-between mb-10">
-          {/*  */}
+          {/* Search Field */}
           <input
             type="text"
             placeholder="Search products by name..."
@@ -84,7 +189,7 @@ const Home = () => {
             onChange={(e) => setSearchQuery(e.target.value)}
           />
 
-          {/*  */}
+          {/* Brand Filter */}
           <select
             className="select select-bordered w-full lg:max-w-xs"
             value={selectedBrand}
@@ -94,10 +199,9 @@ const Home = () => {
             <option value="Logitech">Logitech</option>
             <option value="Apple">Apple</option>
             <option value="Samsung">Samsung</option>
-            {/*  */}
           </select>
 
-          {/* */}
+          {/* Category Filter */}
           <select
             className="select select-bordered w-full lg:max-w-xs"
             value={selectedCategory}
@@ -107,12 +211,11 @@ const Home = () => {
             <option value="Electronics">Electronics</option>
             <option value="Home Appliances">Home Appliances</option>
             <option value="Cameras">Cameras</option>
-            {/* */}
           </select>
 
-          {/*  */}
+          {/* Price Range Filter */}
           <div className="flex items-center w-full lg:max-w-xs">
-            <span className="mr-2">${priceRange[0]}</span>
+            <span className="mr-2 text-gray-700">${priceRange[0]}</span>
             <input
               type="range"
               min="0"
@@ -123,10 +226,10 @@ const Home = () => {
                 setPriceRange([priceRange[0], parseInt(e.target.value)])
               }
             />
-            <span className="ml-2">${priceRange[1]}</span>
+            <span className="ml-2 text-gray-700">${priceRange[1]}</span>
           </div>
 
-          {/*  */}
+          {/* Sort Option */}
           <select
             className="select select-bordered w-full lg:max-w-xs"
             value={sortOption}
@@ -139,27 +242,27 @@ const Home = () => {
           </select>
         </div>
 
-        {/*  */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mx-10">
+        {/* Products Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {sortedProducts?.map((product) => (
             <Products key={product._id} product={product} />
           ))}
         </div>
 
-        {/*  */}
+        {/* Pagination */}
         <div className="flex justify-center mt-8">
           <button
-            className="btn"
+            className="btn btn-primary"
             onClick={handlePreviousPage}
             disabled={currentPage === 1}
           >
             Previous
           </button>
-          <span className="mx-4">
+          <span className="mx-4 text-gray-700">
             Page {currentPage} of {totalPages}
           </span>
           <button
-            className="btn"
+            className="btn btn-primary"
             onClick={handleNextPage}
             disabled={currentPage === totalPages}
           >
